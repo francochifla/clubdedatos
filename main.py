@@ -1,5 +1,20 @@
 from fastapi import FastAPI
 # import requests
+import sqlite3
+
+def iniciar_db():
+    conn = sqlite3.connect("leterbox.db")
+    cursor = conn.cursor()
+    consulta = """
+        CREATE TABLE IF NOT EXISTS peliculas (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        titulo TEXT,
+        genero TEXT,
+        puntaje INTEGER)
+    """
+    cursor.execute(consulta)
+    conn.comit()
+    conn.close()
 
 db_peliculas = [{"titulo": "Matrix", "genero": "accion", "puntaje": 5},
                 {"titulo": "Esperando la Carroza", "genero": "comedia", "puntaje": 5}]
