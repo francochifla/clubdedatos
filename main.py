@@ -13,8 +13,10 @@ def iniciar_db():
         puntaje INTEGER)
     """
     cursor.execute(consulta)
-    conn.comit()
+    conn.commit()
     conn.close()
+
+# modificar el codigo en base a la nueva db
 
 db_peliculas = [{"titulo": "Matrix", "genero": "accion", "puntaje": 5},
                 {"titulo": "Esperando la Carroza", "genero": "comedia", "puntaje": 5}]
